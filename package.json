@@ -7,7 +7,7 @@
     "dev:client": "rollup -c -w",
     "start": "sirv public",
     "dev:server": "concurrently \"npm run dev:client\" \"nodemon server/index.ts\"",
-    "build:server": "npm run build && tsc -p tsconfig.server.json",
+    "build-ssr": "npm run build && tsc -p tsconfig.server.json",
     "start:server": "node dist/index.js",
     "validate": "svelte-check"
   },
