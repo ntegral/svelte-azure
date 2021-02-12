@@ -5,7 +5,7 @@ import sivr from 'sirv';
 require('svelte/register');
 
 const { PORT, NODE_ENV } = process.env;
-const env = NODE_ENV === 'development';
+const env = NODE_ENV === 'production';
 
 // trigger new workflow //
 
@@ -24,13 +24,13 @@ export function app() {
     }
 
     // All regular routes use the Universal engine
-    server.get('*', (req, res, next) => { 
+    /* server.get('*', (req, res, next) => { 
         if (NODE_ENV === 'production') {
             sivr('public', { dev: false, single: true })
         } else {
             sivr('public', { dev: true, single: true })
         }
-    })
+    }) */
 
     server.on('error', (err)=> {
         console.log('Node Server Error', err);
