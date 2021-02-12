@@ -26,9 +26,9 @@ export function app() {
     // All regular routes use the Universal engine
     server.get('*', (req, res, next) => { 
         if (NODE_ENV === 'production') {
-            sivr('public', { dev: false, single: true, gzip: true })
+            sivr('public', { dev: false, single: true })
         } else {
-            sivr('public', { dev: true, single: true, gzip: true })
+            sivr('public', { dev: true, single: true })
         }
     })
 
