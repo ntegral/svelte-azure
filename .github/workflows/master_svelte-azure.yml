@@ -30,12 +30,10 @@ jobs:
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
+      working-directory: './dist'
       with:
         app-name: 'svelte-azure'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_a4242df8971b409dbec123b538c8d803 }}
         package: .
-
-    - name: 'Start Express Server'
-      working-directer: './dist'
         
