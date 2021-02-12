@@ -38,4 +38,5 @@ jobs:
 
     - name: 'Start Express Server'
       runs:
+        uses: 'node12'
         main: 'dist/index.js'
