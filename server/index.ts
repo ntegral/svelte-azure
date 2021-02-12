@@ -15,13 +15,22 @@ export function app() {
     server.use(compression());
     if (NODE_ENV === 'production') {
         server.use(
-            sivr('public', { dev: false })
+            sivr('public', { dev: false, single: true, gzip: true })
         );
     } else {
         server.use(
-            sivr('public', { dev:true })
+            sivr('public', { dev:true, single: true, gzip: true })
         )
     }
+
+    // All regular routes use the Universal engine
+    server.get('*', (req, res, next) => { 
+        if (NODE_ENV === 'production') {
+            sivr('public', { dev: false, single: true, gzip: true })
+        } else {
+            sivr('public', { dev: true, single: true, gzip: true })
+        }
+    })
 
     server.on('error', (err)=> {
         console.log('Node Server Error', err);
