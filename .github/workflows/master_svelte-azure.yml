@@ -26,7 +26,6 @@ jobs:
         npm install
         npm run build --if-present
         npm run build:server --if-present
-        npm run start:server --if-present
         npm run test --if-present
 
     - name: 'Deploy to Azure Web App'
@@ -36,3 +35,7 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_a4242df8971b409dbec123b538c8d803 }}
         package: .
+
+    - name: 'Start Express Server'
+      runs:
+        main: 'dist/index.js'
