@@ -7,7 +7,7 @@ require('svelte/register');
 const { PORT, NODE_ENV } = process.env;
 const env = NODE_ENV === 'development';
 
-// trigger new workflow .. const App = 
+// trigger new workflow //
 
 export function app() {
     const server = express();
