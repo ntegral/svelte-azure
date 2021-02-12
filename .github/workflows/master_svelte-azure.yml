@@ -37,6 +37,5 @@ jobs:
         package: .
 
     - name: 'Start Express Server'
-      uses: 'node12'
-        main: 'dist/index.js'
+      working-directer: './dist'
         
