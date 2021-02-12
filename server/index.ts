@@ -15,11 +15,11 @@ export function app() {
     server.use(compression());
     if (NODE_ENV === 'production') {
         server.use(
-            sivr('public', { dev: false, single: true, gzip: true })
+            sivr('public', { dev: false, single: true })
         );
     } else {
         server.use(
-            sivr('public', { dev:true, single: true, gzip: true })
+            sivr('public', { dev:true, single: true })
         )
     }
 
