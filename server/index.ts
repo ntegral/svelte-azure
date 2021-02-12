@@ -19,7 +19,7 @@ export function app() {
         );
     } else {
         server.use(
-            sivr('public', { dev:true, single: true })
+            sivr('public', { dev: true, single: true })
         )
     }
 
