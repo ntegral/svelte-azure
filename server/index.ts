@@ -11,8 +11,13 @@ const env = NODE_ENV === 'production';
 
 export function app() {
     const server = express();
+
+    // updated server side processing for svelte
+    server.use(compression(),
+        sivr('public', { dev: false, single: true })
+    );
     
-    server.use(compression());
+    /* server.use(compression());
     if (NODE_ENV === 'production') {
         server.use(
             sivr('public', { dev: false, single: true })
@@ -21,7 +26,7 @@ export function app() {
         server.use(
             sivr('public', { dev: true, single: true })
         )
-    }
+    } */
 
     // All regular routes use the Universal engine
     /* server.get('*', (req, res, next) => { 
